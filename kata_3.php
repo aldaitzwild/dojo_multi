@@ -1,31 +1,30 @@
 <?php
 /**
- * First In First Out: on enleve d'un tableau une valeur saisi 
- * en piochant dans les premieres case
+ * ventilate : on enleve d'un tableau une valeur saisi 
+ * en piochant dans chaque case du tableau 
  * 
  * 
  * -> [4, 4, 4] , 6
- * [0, 2, 4]
+ * [2, 2, 2]
  * 
  * -> [3, 3, 3, 3] , 9
- * [0, 0, 0, 3]
+ * [0, 1, 1, 1]
  * 
  * -> [8, 8], 2
- * [6, 8]
+ * [7, 7]
  */
 
  function fifo(array $values, int $decrement): array
  {
-    $index = 0;
-    for ($i=$decrement; $i > 0 ; $i--) { 
-        if($values[$index] > 0) {
-            $values[$index] -= 1;
-        } else {
-            $index++;
-            $i++;
-        }
+    while($decrement > 0) {
+        foreach($values as $i => $value) {
+            if($values[$i] == 0) continue;
 
-        echo "-$i\n";
+            $values[$i] -= 1;
+            $decrement--;
+
+            if($decrement == 0) break;
+        }
     }
 
     return $values;
@@ -58,3 +57,4 @@
         6
     )
  );
+ 
