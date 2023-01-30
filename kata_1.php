@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * Afficher le détails des X et O saisi dans une chaine :
  * 
  * -> XXX
